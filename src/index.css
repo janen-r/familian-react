@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: #000000;
+}
+.bg-cover{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.relation-timeline {
+    font-size: 20px;
+}
+
+.relation-result {
+    text-align: center;
+    font-size: 20px;
+}
