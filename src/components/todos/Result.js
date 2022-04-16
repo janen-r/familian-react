@@ -6,6 +6,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import {removeEntry, toggleEntryDone} from "../../features/todoSlice";
 import {useDispatch} from "react-redux";
 import { findRelation } from "../../common/common";
+import { capitalizeFirstLetter } from "../../common/common";
 import {
   Timeline,
   Container,
@@ -37,7 +38,7 @@ const Result = ({entries}) => {
       <BodyContent>
       {entries.length > 0 ? <Section title="Your"></Section> : null}
       {entries.map(({text}, index) => (
-       <Section title={`${text}${entries.length == index+1 ? '': "'s"}`} className="relation-timeline-section" style={{ FontSize: '10px' }}></Section>
+       <Section title={`${capitalizeFirstLetter(text)}${entries.length == index+1 ? '': "'s"}`} className="relation-timeline-section" style={{ FontSize: '10px' }}></Section>
       ))}
       </BodyContent>
      </Container>

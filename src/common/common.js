@@ -1,13 +1,10 @@
+import { relationTree } from "./relationData";
+
 export function findRelation (inputRelationArray) {
 
 inputRelationArray = inputRelationArray.map(v=>v.text)
 
-if(inputRelationArray.length == 1) return inputRelationArray; 
-// Config
-const relationTree = {
-    'father_brother': 'uncle',
-    'uncle_father': 'grandpa'
-  }
+if(inputRelationArray.length == 1) return inputRelationArray;
   
   // Find relation
   let currentRelation = inputRelationArray[0];
@@ -18,6 +15,10 @@ const relationTree = {
   }
 
   // Output
-  return currentRelation;
+  return currentRelation || '';
 
+}
+
+export function capitalizeFirstLetter(str) {
+  return str[0].toUpperCase() + str.slice(1);
 }

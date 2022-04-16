@@ -4,6 +4,8 @@ import TodoShelf from "./TodoShelf";
 import {addTodoEntry} from "../../features/todoSlice";
 import Result from "./Result";
 import ReplayIcon from '@mui/icons-material/Replay';
+import { capitalizeFirstLetter } from "../../common/common"
+import { relationsList } from "../../common/relationData"
 
 const Todos = () => {
     const [newTodoEntry, setNewTodoEntry] = useState("");
@@ -67,8 +69,8 @@ const Todos = () => {
                                         m-0
                                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                                             <option value='' selected>Select the relation name</option>
-                                            {['father', 'brother'].map((option) => (
-                                            <option value={option.toLowerCase()}>{option}</option>
+                                            {relationsList.map((option) => (
+                                            <option value={option}>{capitalizeFirstLetter(option)}</option>
                                             ))}
                                         </select>
                                      <span className="relative top-0 right-0 block">
