@@ -84,7 +84,7 @@ const Todos = () => {
                         <span className="relative top-0 right-0 block">
                             <button type="button" className="inline-flex items-center w-25 h-9 px-8 text-base font-bold leading-6 text-white transition duration-150 ease-in-out bg-red-400 border border-transparent hover:bg-red-700 focus:outline-none active:bg-indigo-700" onClick={() => {
                                 console.log('reload')
-                                window.location.reload();
+                                window.location = window.location.href.split("?")[0];
                             }}>
                             Reset <ReplayIcon />
                             </button>

@@ -3,10 +3,11 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import uuid from 'react-uuid'
 import ClearIcon from '@mui/icons-material/Clear';
+import ShareIcon from '@mui/icons-material/Share';
 import {removeEntry, toggleEntryDone} from "../../features/todoSlice";
 import {useDispatch} from "react-redux";
 import { findRelation } from "../../common/common";
-import { capitalizeFirstLetter } from "../../common/common";
+import { capitalizeFirstLetter, generateWhatsAppSharingContent } from "../../common/common";
 import {
   Timeline,
   Container,
@@ -15,6 +16,9 @@ import {
   Section,
   Description,
  } from 'vertical-timeline-component-react';
+ import { getWhatsAppClickToChatLink } from 'share-text-to-whatsapp';
+ import Button from "@material-tailwind/react/Button";
+
  const customTheme = {
   lineColor: '#d0cdc4',
   dotColor: '#262626',
@@ -44,10 +48,17 @@ const Result = ({entries}) => {
      </Container>
     </Timeline>
     </div>
-    {entries.length > 1 ? <div className="relation-result text-green-500"><p>is your <b><i>{relationName.toUpperCase()}</i></b> !!</p></div> : null}
+    {entries.length > 1 ? <div className="relation-result text-green-500"><p>is your <b><i>{relationName.toUpperCase()}</i></b> !! <Button className="inline-flex py-1 px-3 border text-white" onClick={() => {
+      window.open(getWhatsAppClickToChatLink(generateWhatsAppSharingContent(entries, relationName)), '_blank');
+  }} color="white" target="_blank">
+    {/* <svg class="w-4 h-4 mr-2" style={{ "background":"white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> */}
+    <ShareIcon />
+    <span>Share</span>
+    </Button></p></div> : null}
     {entries.length == 1 ? <div className="relation-result text-green-500"><p>{} Add one more relation to check !!</p></div> : null}
     </div>
     );
+    
 //     return (
 //       <div>
 //         <div>

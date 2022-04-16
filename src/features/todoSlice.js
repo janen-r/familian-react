@@ -2,11 +2,14 @@ import {createSlice} from "@reduxjs/toolkit";
 
 // Get Tasks from Local Storage
 const setInitialState = () => {
-  const json = localStorage.getItem('todos');
-  if (json !== null)
+  // const json = localStorage.getItem('todos');
+ // if (json !== null)
+ const query = new URLSearchParams(window.location.search); 
+ if(query.get('relations')) 
     {
+    const queryRelationNames = query.get('relations').split('+');
       return {
-        entries: [] // JSON.parse(json)
+        entries: queryRelationNames.map(v=> { return {"text": v, "isDone": false} }) // JSON.parse(json)
       }
     } else {
     return {
