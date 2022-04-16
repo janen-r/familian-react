@@ -44,7 +44,7 @@ const Result = ({entries}) => {
       {entries.map(({text}, index) => (
        <Section title={`${capitalizeFirstLetter(text)}${entries.length == index+1 ? '': "'s"}`} className="relation-timeline-section" style={{ FontSize: '10px' }}></Section>
       ))}
-      {entries.length > 1 ? <Section title=""><div className="relation-result" style={{ 'color': '#bf9765' }}><p style={{ "text-align":"left" }}>is your <b className="animate-pulse text-green-500"><i>{relationName.toUpperCase()} !!</i></b> <Button id="share-button" className="inline-flex py-1 px-3 border text-white" onClick={() => {
+      {entries.length > 1 ? <Section title=""><div className="relation-result" style={{ 'color': '#bf9765' }}><p style={{ "text-align":"left", "float":"left" }}>is your <b className="animate-pulse text-green-500"><i>{relationName.toUpperCase()} !!</i></b> <Button id="share-button" className="inline-flex py-1 px-3 border text-white" onClick={() => {
       window.open(getWhatsAppClickToChatLink(generateWhatsAppSharingContent(entries, relationName)), '_blank');
   }} color="white" target="_blank">
     {/* <svg class="w-4 h-4 mr-2" style={{ "background":"white" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> */}
