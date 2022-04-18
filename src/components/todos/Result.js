@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import uuid from 'react-uuid'
@@ -18,6 +18,7 @@ import {
  } from 'vertical-timeline-component-react';
  import { getWhatsAppClickToChatLink } from 'share-text-to-whatsapp';
  import Button from "@material-tailwind/react/Button";
+ import ReactCanvasConfetti from "react-canvas-confetti";
 
  const customTheme = {
   lineColor: '#d0cdc4',
@@ -28,11 +29,78 @@ import {
   // textColor: '#262626',
  };
 
+/*****Animation */
+
+const canvasStyles = {
+  position: "fixed",
+  pointerEvents: "none",
+  width: "100%",
+  height: "100%",
+  top: 0,
+  left: 0
+};
+
+/******Animation */
+
+
+
 const Result = ({entries}) => {
   const dispatch = useDispatch();
   const relationName = findRelation(entries);
-  
-  console.log(relationName, 'relationName------');
+
+  /*** Animation */
+  const refAnimationInstance = useRef(null);
+
+  const getInstance = useCallback((instance) => {
+    refAnimationInstance.current = instance;
+  }, []);
+
+  const makeShot = useCallback((particleRatio, opts) => {
+    refAnimationInstance.current &&
+      refAnimationInstance.current({
+        ...opts,
+        origin: { y: 0.7 },
+        particleCount: Math.floor(200 * particleRatio)
+      });
+  }, []);
+
+  const fire = useCallback(() => {
+    makeShot(0.25, {
+      spread: 26,
+      startVelocity: 55
+    });
+
+    makeShot(0.2, {
+      spread: 60
+    });
+
+    makeShot(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 45
+    });
+  }, [makeShot]);
+
+  // const fireWorkRef = React.useRef(null)
+  const startFire = function (){
+    // fireWorkRef.current.click()
+  document.getElementById('fireWorkButton').click({});
+  }
+
+  /***Animation */
+
   return(
     <div>
     <div className="relative flex items-center max-w-md mx-auto mt-2 overflow-hidden rounded-full relation-timeline">
@@ -63,6 +131,9 @@ const Result = ({entries}) => {
     <span>Share</span>
     </Button></p></div> : null}
     {entries.length == 1 ? <div className="relation-result text-green-500 animate-pulse"><p>{} Add one more relation to check !!</p></div> : null}
+    <button id="fireWorkButton" onClick={fire}>Fire</button>
+    <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
+    { entries.length > 0 ? startFire(): null }
     </div>
     );
     
