@@ -22,6 +22,7 @@
     "react-particle-backgrounds": "^1.0.2",
     "react-redux": "^7.2.6",
     "react-scripts": "5.0.0",
+    "react-typist": "^2.0.5",
     "react-uuid": "^1.0.2",
     "react-vertical-timeline-component": "^3.5.2",
     "share-text-to-whatsapp": "^1.0.2",

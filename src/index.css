@@ -23,6 +23,10 @@ body{
     font-size: 20px;
 }
 
+.relation-timeline .MuiSvgIcon-root path{
+  color: #ffffff;
+}
+
 #share-button{
     padding: 3px 6px;
     margin-top: 4px;

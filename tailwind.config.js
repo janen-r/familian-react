@@ -12,6 +12,9 @@ module.exports = {
       backdropBlur: {
         xs: '2px',
       },
+      // animation: {
+      //   // 'animation-bounce-once': 'bounce 1s ease-in-out 5'
+      // },
       colors: {
         /* I will implement tht theming later, its just getting started..
         'buttonRed': '#f87171',

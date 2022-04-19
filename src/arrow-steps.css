@@ -78,4 +78,26 @@
 	border-left: 17px solid #1e8344;  
 	/* #23468c; */
   }
+
+
+  .arrow-steps-result{
+	  border: 1px solid #ffffff;
+	  border-radius: 5px;
+  }
+
+  .arrow-steps-result .step {
+	font-size: 18px;
+	text-align: center;
+	color: #ffffff;
+	cursor: default;
+	margin: 4px;
+	padding: 6px 26px 6px 26px;
+	background-color: #1e8344;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	/* transition: background-color 0.2s linear; */
+	border-radius: 5px;
+  }
   

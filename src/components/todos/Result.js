@@ -29,6 +29,8 @@ import StepLabel from "@mui/material/StepLabel";
 
 /** Stepper */
 
+import Typist from 'react-typist';
+
  const customTheme = {
   lineColor: '#d0cdc4',
   dotColor: '#262626',
@@ -62,18 +64,23 @@ const Result = ({entries}) => {
             </StepLabel>
           </Step>
         ))}
-        {entries.length > 1 ? <Step key={"Your"} completed={true}>
+        {entries.length > 1 ? <Step key={"Result"} completed={true}>
             <StepLabel>
-            <div className="arrow-steps clearfix">
-            <div className="step current"> <span>is your <b className=""><i>{relationName.toUpperCase()} !!</i></b></span> </div>
+            <div className="arrow-steps-result clearfix">
+            <div className="step current animate-bounce"> <span>is your <b className=""><i><Typist.Delay ms={1250} />{relationName.toUpperCase()} !!</i></b></span> </div>
             </div> 
+            <div><Button id="share-button" className="inline-flex py-1 px-3 border text-white" onClick={() => {
+ window.open(getWhatsAppClickToChatLink(generateWhatsAppSharingContent(entries, relationName)), '_blank');
+}} color="white" target="_blank">
+<ShareIcon />
+<span>Share</span>
+</Button></div>
             </StepLabel>
       </Step> : null }
       </Stepper>
     </Box>
 
     </div>
-    
     {entries.length == 1 ? <div className="relation-result text-green-500 animate-pulse"><p>{} Add one more relation to check !!</p></div> : null}
     </div>
     );
