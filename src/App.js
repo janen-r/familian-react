@@ -8,7 +8,7 @@ import companyLogo from './Familian-Logo.gif';
 function App() {
     return (
         <div className="App">
-            <div align="center" style={{ "width":"100%" }}><img src={companyLogo} alt="Familian logo" width={"300px"} style={{ padding:"5%" }}/></div>
+            <div align="center" style={{ "width":"100%" }}><img src={companyLogo} alt="Familian logo" width={"260px"} style={{ padding:"5%" }}/></div>
             {/* <BackgroundImage /> */}
             <Todos />
             {/* <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> */}
