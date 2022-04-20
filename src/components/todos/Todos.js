@@ -34,12 +34,12 @@ const Todos = () => {
 
     return (
         <>
-            <div className="absolute inset-x-0 top-0 flex items-start justify-center flex-col">
+            <div className="inset-x-0 top-0 flex items-start justify-center flex-col">
             <section className="w-full px-3 antialiased lg:px-6">
-            <div className="container py-12 mx-auto text-center sm:px-4">
+            {/* <div className="container py-12 mx-auto text-center sm:px-4">
             <h1 className="text-4xl font-extrabold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none md:text-6xl xl:text-7xl filter transition duration-300 drop-shadow-xl">
-            <span className="block">Find your relation !!</span></h1>
-            </div>
+            &#160;</h1>
+            </div> */}
             <Result entries={entries}/>
                     {/* <TodoShelf entries={entries}/> */}
             </section>
